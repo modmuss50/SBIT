@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SBIT.Timer.TimerController">
+   <children>
+      <Button fx:id="button" layoutX="45.0" layoutY="110.0" mnemonicParsing="false" onMouseClicked="#buttonClicked" text="Set" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="110.0" />
+      <TextField fx:id="textboxTime" layoutX="47.0" layoutY="44.0" prefHeight="25.0" prefWidth="30.0" promptText="15" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="50.0" />
+      <Text layoutX="51.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Set Timer:" wrappingWidth="58.000004053115845" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="53.0" />
+      <Text layoutX="130.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="minutes" wrappingWidth="58.000004053115845" AnchorPane.leftAnchor="135.0" AnchorPane.topAnchor="53.0" />
+      <Text layoutX="45.0" layoutY="107.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Time:" wrappingWidth="75.00000405311584" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="83.0" />
+      <Text fx:id="currentTime" layoutX="135.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="00:00" wrappingWidth="37.00000715255737" AnchorPane.leftAnchor="120.0" AnchorPane.topAnchor="83.0" />
+      <CheckBox fx:id="checkboxHide" layoutX="90.0" layoutY="114.0" mnemonicParsing="false" onMouseClicked="#checkboxClicked" text="Hide" AnchorPane.leftAnchor="90.0" AnchorPane.topAnchor="114.0" />
+   </children>
+</AnchorPane>
