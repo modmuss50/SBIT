@@ -24,13 +24,17 @@ public class TeamsController {
     public void buttonSetClicked(MouseEvent mouseEvent) throws IOException {
         Teams.setteams();
     }
+
     @FXML
     public void initialize() throws IOException {
         controller = this;
-        String input1 = FileUtils.readFileToString(new File("team1_name.txt"), StandardCharsets.UTF_8);
-        String input2 = FileUtils.readFileToString(new File("team2_name.txt"), StandardCharsets.UTF_8);
-        String input3 = FileUtils.readFileToString(new File("team1_players.txt"), StandardCharsets.UTF_8);
-        String input4 = FileUtils.readFileToString(new File("team2_players.txt"), StandardCharsets.UTF_8);
+        if (!new File("Files/team1_name.txt").exists()) {
+            return;
+        }
+        String input1 = FileUtils.readFileToString(new File("Files/team1_name.txt"), StandardCharsets.UTF_8);
+        String input2 = FileUtils.readFileToString(new File("Files/team2_name.txt"), StandardCharsets.UTF_8);
+        String input3 = FileUtils.readFileToString(new File("Files/team1_players.txt"), StandardCharsets.UTF_8);
+        String input4 = FileUtils.readFileToString(new File("Files/team2_players.txt"), StandardCharsets.UTF_8);
         textboxTeam1.setText(input1);
         textboxTeam2.setText(input2);
         textareaTeam1.setText(input3);
