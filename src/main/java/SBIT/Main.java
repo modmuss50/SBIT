@@ -23,7 +23,7 @@ public class Main extends Application {
         URL url = classloader.getResource("gui.fxml");
         Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("SBIT");
-        primaryStage.setScene(new Scene(root, 600, 400));
+        primaryStage.setScene(new Scene(root, 700, 400));
         primaryStage.show();
         primaryStage.setResizable(true);
         primaryStage.setOnCloseRequest(event -> {
