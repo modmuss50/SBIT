@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SBIT.Schedule.ScheduleController">
+   <children>
+      <Line endX="150.0" endY="400.0" startX="150.0" />
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="150.0">
+         <children>
+            <ComboBox fx:id="gamesComboBox" layoutX="15.0" layoutY="38.0" onAction="#gamesComboBoxAction" prefHeight="25.0" prefWidth="120.0" promptText="Matches" AnchorPane.topAnchor="40.0" />
+            <ComboBox fx:id="currentGameComboBox" disable="true" layoutX="15.0" layoutY="79.0" onAction="#currentGameComboBoxAction" prefHeight="25.0" prefWidth="120.0" promptText="Current Match" AnchorPane.topAnchor="80.0" />
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="400.0" prefWidth="450.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Pane fx:id="matchInfoPane" layoutX="3.0" layoutY="2.0" AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="40.0">
+               <children>
+                  <Text layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Match 1:" wrappingWidth="45.638671875" />
+                  <ComboBox fx:id="game1team1ComboBox" layoutX="55.0" prefHeight="25.0" prefWidth="120.0" promptText="Team" />
+                  <Text layoutX="185.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vs." textAlignment="CENTER" wrappingWidth="15.0" />
+                  <ComboBox fx:id="game1team2ComboBox" layoutX="210.0" prefHeight="25.0" prefWidth="120.0" promptText="Team" />
+                  <ComboBox layoutX="340.0" prefHeight="25.0" prefWidth="70.0" promptText="Time" />
+               </children>
+            </Pane>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
