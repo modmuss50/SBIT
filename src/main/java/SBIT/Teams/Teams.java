@@ -6,7 +6,6 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-import java.util.Arrays;
 
 public class Teams {
     public static void setteams() throws IOException {
@@ -23,21 +22,19 @@ public class Teams {
     }
 
     public static void saveTeams() throws IOException {
-        Object[] teamslistObject = TeamsController.controller.listTeams.getItems().toArray();
-        String[] teamslistString = new String[teamslistObject.length];
-        System.arraycopy(teamslistObject, 0, teamslistString, 0, teamslistObject.length);
-        FileUtils.writeStringToFile(new File("saves/teams.txt"), Arrays.toString(teamslistString), StandardCharsets.UTF_8);
+        String output = String.join("\n", TeamsController.controller.listTeams.getItems());
+        FileUtils.writeStringToFile(new File("saves/teams.txt"), output, StandardCharsets.UTF_8);
     }
 
     public static void loadTeams() throws IOException {
-        String file = FileUtils.readFileToString(new File("saves/teams.txt"), StandardCharsets.UTF_8);
-        String string = file.substring(1, file.length()-1);
-        String[] array = string.split(", ");
+    	File file = new File("saves/teams.txt");
+    	if(!file.exists()){
+    		return;
+	    }
+        String string = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+        String[] array = string.split("\n");
+        TeamsController.controller.listTeams.getItems().clear();
         TeamsController.controller.listTeams.getItems().addAll(array);
-        for (int i = 0; i < array.length; i++) {
-            return;
-        }
-
     }
 
     private static void writeteam(String names, String team) {
