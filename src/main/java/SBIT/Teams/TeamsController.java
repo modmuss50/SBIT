@@ -1,6 +1,7 @@
 package SBIT.Teams;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
@@ -9,6 +10,7 @@ import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
 
 public class TeamsController {
 
@@ -20,6 +22,8 @@ public class TeamsController {
 
 
     public static TeamsController controller;
+    public ListView listTeams;
+    public TextField textboxAddTeam;
 
     public void buttonSetClicked(MouseEvent mouseEvent) throws IOException {
         Teams.setteams();
@@ -28,6 +32,7 @@ public class TeamsController {
     @FXML
     public void initialize() throws IOException {
         controller = this;
+        Teams.loadTeams();
         if (!new File("Files/team1_name.txt").exists()) {
             return;
         }
@@ -47,5 +52,24 @@ public class TeamsController {
         textboxTeam2.clear();
         textareaTeam1.clear();
         textareaTeam2.clear();
+    }
+
+    public void addButtonClicked(MouseEvent mouseEvent) throws IOException {
+        if(!textboxAddTeam.getText().isEmpty()){
+            listTeams.getItems().add(textboxAddTeam.getText());
+            textboxAddTeam.setText("");
+            Teams.saveTeams();
+        } else {
+            return;
+        }
+    }
+
+    public void removeButtonClicked(MouseEvent mouseEvent) throws IOException {
+        listTeams.getItems().remove(listTeams.getSelectionModel().getSelectedItem());
+        Teams.saveTeams();
+    }
+
+    public void listTeamsClicked(MouseEvent mouseEvent) {
+
     }
 }

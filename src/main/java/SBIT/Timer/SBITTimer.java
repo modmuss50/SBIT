@@ -1,11 +1,7 @@
 package SBIT.Timer;
 
 import SBIT.Utilities;
-import org.apache.commons.io.FileUtils;
 
-import java.io.File;
-import java.io.IOException;
-import java.nio.charset.StandardCharsets;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -27,7 +23,7 @@ public class SBITTimer {
 
     public static void ticker() {
         if (hidden) {
-            Utilities.writeToFile("timer", "");
+            Utilities.writeToTxt("timer", "");
             return;
         }
         if (seconds > 0) {
@@ -35,7 +31,7 @@ public class SBITTimer {
             int mins = seconds / 60;
             int secs = seconds % 60;
             String output = String.format("%02d:%02d", mins, secs);
-            Utilities.writeToFile("timer", output);
+            Utilities.writeToTxt("timer", output);
             TimerController.controller.currentTime.setText(output);
         }
     }
