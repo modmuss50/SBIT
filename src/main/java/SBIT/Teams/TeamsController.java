@@ -22,7 +22,7 @@ public class TeamsController {
 
 
     public static TeamsController controller;
-    public ListView listTeams;
+    public ListView<String> listTeams;
     public TextField textboxAddTeam;
 
     public void buttonSetClicked(MouseEvent mouseEvent) throws IOException {
