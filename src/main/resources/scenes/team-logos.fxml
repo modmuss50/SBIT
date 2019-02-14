@@ -9,7 +9,7 @@
    <children>
       <Text layoutX="77.0" layoutY="67.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 1:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="44.0" />
       <Text layoutX="84.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Team 2:" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="104.0" />
-      <Button layoutX="258.0" layoutY="125.0" mnemonicParsing="false" text="Set" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="150.0" />
+      <Button layoutX="258.0" layoutY="125.0" mnemonicParsing="false" onMouseClicked="#setButtonClicked" text="Set" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="150.0" />
       <ComboBox fx:id="team1ComboBox" layoutX="93.0" layoutY="49.0" prefHeight="25.0" prefWidth="300.0" AnchorPane.topAnchor="40.0" />
       <ComboBox fx:id="team2ComboBox" layoutX="93.0" layoutY="100.0" prefHeight="25.0" prefWidth="300.0" AnchorPane.topAnchor="100.0" />
    </children>

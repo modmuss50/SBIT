@@ -18,23 +18,30 @@ public class Utilities {
         }
     }
 
-    public static void replacePng(String inputfilepath,String outputfilename){
-        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
-        InputStream inputStream = classloader.getResourceAsStream("images/" + inputfilepath);
-
+    public static void replacePngFromFile(String inputFilepath, String outputFileName){
         try {
-            IOUtils.copy(inputStream, new FileOutputStream(new File("Files/Images/" + outputfilename + ".png")));
+            FileUtils.copyFile(new File(inputFilepath), new File("Files/Images/" + outputFileName + ".png"));
         } catch (IOException e) {
-            Utilities.showErrorBox(e.getMessage(), e);
+            Utilities.showErrorBox(e.getMessage());
         }
     }
 
-    public static void showErrorBox(String errormessage, Exception exception){
-        exception.printStackTrace();
+    public static void replacePngFromResource(String inputFilepath, String outputFileName){
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream inputStream = classloader.getResourceAsStream("images/" + inputFilepath);
+
+        try {
+            IOUtils.copy(inputStream, new FileOutputStream(new File("Files/Images/" + outputFileName + ".png")));
+        } catch (IOException e) {
+            Utilities.showErrorBox(e.getMessage());
+        }
+    }
+
+    public static void showErrorBox(String errorMessage){
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle("Error");
         alert.setHeaderText("There was an error");
-        alert.setContentText(errormessage);
+        alert.setContentText(errorMessage);
         alert.showAndWait();
     }
 }

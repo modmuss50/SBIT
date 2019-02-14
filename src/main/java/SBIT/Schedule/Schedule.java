@@ -12,6 +12,6 @@ public class Schedule {
         int currentgame = Integer.parseInt(ScheduleController.controller.currentGameComboBox.getValue());
         String resourceName = "schedule/" + "games" + games + "-" + "current" + currentgame + ".png";
 
-        Utilities.replacePng(resourceName, "scheduleimage");
+        Utilities.replacePngFromResource(resourceName, "scheduleimage");
     }
 }
