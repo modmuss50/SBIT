@@ -1,10 +1,19 @@
 package SBIT.TeamLogos;
 
-import javafx.scene.control.MenuButton;
+import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
+import java.io.InputStream;
 
 public class TeamLogosContoller {
 
-    public MenuButton team1MenuButton;
+    public ComboBox team1ComboBox;
+    public ComboBox team2ComboBox;
 
-    public MenuButton team2MenuButton;
+    @FXML
+    public void initialize() {
+        ClassLoader classloader = Thread.currentThread().getContextClassLoader();
+        InputStream inputStream = classloader.getResourceAsStream("images/teamlogos/" );
+        team1ComboBox.getItems().addAll(inputStream);
+        System.out.println(inputStream);
+    }
 }

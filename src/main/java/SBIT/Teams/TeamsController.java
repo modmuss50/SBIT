@@ -20,7 +20,6 @@ public class TeamsController {
     public TextArea textareaTeam1;
     public TextArea textareaTeam2;
 
-
     public static TeamsController controller;
     public ListView<String> listTeams;
     public TextField textboxAddTeam;
@@ -44,7 +43,6 @@ public class TeamsController {
         textboxTeam2.setText(input2);
         textareaTeam1.setText(input3);
         textareaTeam2.setText(input4);
-
     }
 
     public void buttonClearClicked(MouseEvent mouseEvent) {
@@ -59,8 +57,6 @@ public class TeamsController {
             listTeams.getItems().add(textboxAddTeam.getText());
             textboxAddTeam.setText("");
             Teams.saveTeams();
-        } else {
-            return;
         }
     }
 
@@ -69,7 +65,4 @@ public class TeamsController {
         Teams.saveTeams();
     }
 
-    public void listTeamsClicked(MouseEvent mouseEvent) {
-
-    }
 }

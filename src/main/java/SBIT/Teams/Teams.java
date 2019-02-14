@@ -35,6 +35,7 @@ public class Teams {
         String[] array = string.split("\n");
         TeamsController.controller.listTeams.getItems().clear();
         TeamsController.controller.listTeams.getItems().addAll(array);
+
     }
 
     private static void writeteam(String names, String team) {
