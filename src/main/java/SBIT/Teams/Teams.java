@@ -9,8 +9,8 @@ import java.nio.charset.StandardCharsets;
 
 public class Teams {
     public static void setteams() throws IOException {
-        String team1name = TeamsController.controller.textboxTeam1.getText();
-        String team2name = TeamsController.controller.textboxTeam2.getText();
+        String team1name = TeamsController.controller.team1ComboBox.getValue();
+        String team2name = TeamsController.controller.team2ComboBox.getValue();
         String team1players = TeamsController.controller.textareaTeam1.getText();
         String team2players = TeamsController.controller.textareaTeam2.getText();
         Utilities.writeToTxt("team1_name", team1name);
@@ -36,6 +36,19 @@ public class Teams {
         TeamsController.controller.listTeams.getItems().clear();
         TeamsController.controller.listTeams.getItems().addAll(array);
 
+    }
+
+    public static void fillComboBoxItems() throws IOException {
+        TeamsController.controller.team1ComboBox.getItems().clear();
+        TeamsController.controller.team2ComboBox.getItems().clear();
+        File file = new File("saves/teams.txt");
+        if(!file.exists()){
+            return;
+        }
+        String string = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+        String[] array = string.split("\n");
+        TeamsController.controller.team1ComboBox.getItems().addAll(array);
+        TeamsController.controller.team2ComboBox.getItems().addAll(array);
     }
 
     private static void writeteam(String names, String team) {

@@ -1,6 +1,8 @@
 package SBIT.Teams;
 
+import SBIT.Schedule.ScheduleMatchLine;
 import javafx.fxml.FXML;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -15,14 +17,14 @@ import java.util.Arrays;
 public class TeamsController {
 
 
-    public TextField textboxTeam1;
-    public TextField textboxTeam2;
     public TextArea textareaTeam1;
     public TextArea textareaTeam2;
-
-    public static TeamsController controller;
     public ListView<String> listTeams;
     public TextField textboxAddTeam;
+    public ComboBox<String> team1ComboBox;
+    public ComboBox<String> team2ComboBox;
+    public static TeamsController controller;
+
 
     public void buttonSetClicked(MouseEvent mouseEvent) throws IOException {
         Teams.setteams();
@@ -35,19 +37,16 @@ public class TeamsController {
         if (!new File("Files/team1_name.txt").exists()) {
             return;
         }
-        String input1 = FileUtils.readFileToString(new File("Files/team1_name.txt"), StandardCharsets.UTF_8);
-        String input2 = FileUtils.readFileToString(new File("Files/team2_name.txt"), StandardCharsets.UTF_8);
         String input3 = FileUtils.readFileToString(new File("Files/team1_players.txt"), StandardCharsets.UTF_8);
         String input4 = FileUtils.readFileToString(new File("Files/team2_players.txt"), StandardCharsets.UTF_8);
-        textboxTeam1.setText(input1);
-        textboxTeam2.setText(input2);
         textareaTeam1.setText(input3);
         textareaTeam2.setText(input4);
+        File file = new File("saves/teams.txt");
+        Teams.fillComboBoxItems();
     }
 
-    public void buttonClearClicked(MouseEvent mouseEvent) {
-        textboxTeam1.clear();
-        textboxTeam2.clear();
+    public void buttonClearClicked(MouseEvent mouseEvent) throws IOException {
+        Teams.fillComboBoxItems();
         textareaTeam1.clear();
         textareaTeam2.clear();
     }

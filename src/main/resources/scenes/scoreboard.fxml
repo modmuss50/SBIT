@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SBIT.Scoreboard.ScoreboardController">
+   <children>
+      <Line endX="600.0" layoutX="125.0" layoutY="210.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="50.0" />
+      <Line endX="600.0" layoutX="115.0" layoutY="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="225.0" />
+      <Line endX="60.0" endY="400.0" layoutX="111.0" layoutY="119.0" startX="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="0.0" />
+      <Line endX="60.0" endY="400.0" layoutX="101.0" layoutY="109.0" startX="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0" />
+      <Line endX="60.0" endY="400.0" layoutX="232.0" layoutY="0.5" startX="60.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="0.0" />
+      <Line endX="60.0" endY="400.0" layoutX="299.0" layoutY="0.5" startX="60.0" AnchorPane.bottomAnchor="-1.0" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="0.0" />
+      <Line endX="60.0" endY="400.0" layoutX="121.0" layoutY="129.0" startX="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="0.0" />
+      <Line endX="60.0" endY="400.0" layoutX="131.0" layoutY="139.0" startX="60.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="400.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" layoutY="1.0" prefHeight="50.0" prefWidth="150.0" text="Name" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" layoutX="151.0" layoutY="1.0" prefHeight="50.0" prefWidth="50.0" text="Kills" AnchorPane.leftAnchor="150.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="11.0" prefHeight="50.0" prefWidth="50.0" text="Assists" AnchorPane.leftAnchor="200.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="11.0" prefHeight="50.0" prefWidth="50.0" text="Deaths" AnchorPane.leftAnchor="250.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="11.0" prefHeight="50.0" prefWidth="50.0" text="MVPs" AnchorPane.leftAnchor="300.0" AnchorPane.topAnchor="0.0" />
+      <Label alignment="CENTER" layoutX="161.0" layoutY="11.0" prefHeight="50.0" prefWidth="50.0" text="Points" AnchorPane.leftAnchor="350.0" AnchorPane.topAnchor="0.0" />
+      <GridPane fx:id="gridpaneTeam1" gridLinesVisible="true" prefWidth="400.0" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="50.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="3.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="50.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="49.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+      </GridPane>
+      <GridPane fx:id="gridpaneTeam2" gridLinesVisible="true" layoutX="10.0" layoutY="10.0" prefWidth="400.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="225.0">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="150.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="3.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="150.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="202.0" minWidth="10.0" prefWidth="50.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="254.0" minWidth="10.0" prefWidth="49.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="46.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="35.0" minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+      </GridPane>
+   </children>
+</AnchorPane>
