@@ -6,29 +6,25 @@ import javafx.scene.Parent;
 import javafx.scene.control.ListView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import org.apache.commons.io.Charsets;
-import org.apache.commons.io.IOUtils;
-
-import java.io.IOException;
+import java.io.*;
+import java.net.URISyntaxException;
 import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
-
+import java.util.*;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 
 public class Controller {
 
-    public ListView listView;
+    public ListView<String> listView;
     public AnchorPane scenePane;
 
     public HashMap<String,Parent> parentHashMap = new HashMap<>();
 
     @FXML
     public void initialize() throws IOException {
-        List<String> files = IOUtils.readLines(Controller.class.getClassLoader().getResourceAsStream("scenes/"), Charsets.UTF_8);
-        files.stream()
+	    getResourceFiles("scenes").stream()
                 .map(s -> s.replace(".fxml", ""))
-                .forEach(s -> listView.getItems().add(s));
-        files.stream()
+	            .peek(s -> listView.getItems().add(s))
                 .forEach(file -> {
                     ClassLoader classloader = Thread.currentThread().getContextClassLoader();
                     URL url = classloader.getResource("scenes/" + file);
@@ -42,6 +38,40 @@ public class Controller {
                 });
 
     }
+
+    //This is a method that handles geting a list of resources either from a dir, or a jar file.
+	private List<String> getResourceFiles(String path) throws IOException {
+		List<String> filenames = new ArrayList<>();
+		File jarFile = new File(getClass().getProtectionDomain().getCodeSource().getLocation().getPath());
+
+		if(jarFile.isFile()) {
+			JarFile jar = new JarFile(jarFile);
+			Enumeration<JarEntry> entries = jar.entries();
+			while(entries.hasMoreElements()) {
+				String name = entries.nextElement().getName();
+				if (name.startsWith(path + "/")) {
+					String fileName = name.replace(path + "/", "");
+					if(!fileName.isEmpty()){
+						filenames.add(fileName);
+					}
+				}
+			}
+			jar.close();
+		} else {
+			URL url = Controller.class.getResource("/" + path);
+			if (url != null) {
+				try {
+					File apps = new File(url.toURI());
+					for (File app : apps.listFiles()) {
+						filenames.add(app.getName());
+					}
+				} catch (URISyntaxException ex) {
+					throw new RuntimeException(ex);
+				}
+			}
+		}
+		return filenames;
+	}
 
     public void listViewClicked(MouseEvent mouseEvent) throws IOException {
         String selected = (String) listView.getSelectionModel().getSelectedItem();
