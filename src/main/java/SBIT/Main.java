@@ -1,5 +1,6 @@
 package SBIT;
 
+import SBIT.Scoreboard.GSIHandler;
 import SBIT.Timer.SBITTimer;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -12,6 +13,7 @@ import java.net.URL;
 public class Main extends Application {
     public static void main(String[] args) throws IOException {
         SBITTimer.setup();
+        GSIHandler.setup();
         launch(args);
     }
 
