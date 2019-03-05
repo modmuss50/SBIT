@@ -10,7 +10,6 @@ public class SBITTimer {
     public static int seconds = 0;
     public static boolean hidden = true;
 
-
     public static void setup() {
         Timer timer = new Timer();
         timer.schedule(new TimerTask() {
@@ -35,5 +34,4 @@ public class SBITTimer {
             TimerController.controller.currentTime.setText(output);
         }
     }
-
 }
