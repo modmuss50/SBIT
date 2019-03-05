@@ -66,8 +66,12 @@ public class ScheduleController {
             }
             Utilities.writeToTxt("scheduleMatch" + i, output);
             Utilities.writeToTxt("scheduleMatch" + i + "Time", time);
-
         }
-
+        for (int i = 1; i <= 4; i++) {
+            Utilities.writeToTxt("scheduleMatchNumber" + i, "");
+        }
+        for (int i = 1; i <= Integer.parseInt(gamesComboBox.getValue()); i++) {
+            Utilities.writeToTxt("scheduleMatchNumber" + i, ""+i);
+        }
     }
 }
