@@ -13,8 +13,8 @@ import java.net.URL;
 public class Main extends Application {
     public static void main(String[] args) throws IOException {
         SBITTimer.setup();
-        GSIHandler.setup();
         launch(args);
+
     }
 
     @Override

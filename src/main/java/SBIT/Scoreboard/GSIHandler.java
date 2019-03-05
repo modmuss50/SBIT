@@ -1,21 +1,20 @@
 package SBIT.Scoreboard;
 
-
-import java.util.Timer;
-import java.util.TimerTask;
-
+import SBIT.Utilities;
+import me.modmuss50.jgsi.api.GameStateIntegration;
+import me.modmuss50.jgsi.api.RoundTracker;
+import java.io.IOException;
 
 public class GSIHandler {
-    public static void setup() {
-        Timer timer = new Timer();
-        timer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                ticker();
-            }
-        }, 0, 1000);
-    }
-    public static void ticker() {
+    public static GameStateIntegration integration;
+    public static RoundTracker tracker;
 
+    static {
+        try {
+            integration = GameStateIntegration.create().start();
+            tracker = RoundTracker.create(integration);
+        } catch (IOException e) {
+            Utilities.showErrorBox(e.getMessage());
+        }
     }
 }
